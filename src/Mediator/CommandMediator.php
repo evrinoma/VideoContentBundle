@@ -36,13 +36,13 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setTitle($dto->getTitle())
             ->setPosition($dto->getPosition())
             ->setBody($dto->getBody())
-            ->setPreview($filePreview->getRealPath())
+            ->setPreview($filePreview->getPathname())
             ->setUpdatedAt(new \DateTimeImmutable())
             ->setActive($dto->getActive());
 
         if ($dto->hasVideo()) {
             $fileVideo = $this->fileSystem->save($dto->getVideo());
-            $entity->setVideo($fileVideo->getRealPath());
+            $entity->setVideo($fileVideo->getPathname());
         } else {
             $entity->resetVideo();
         }
@@ -71,13 +71,13 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setTitle($dto->getTitle())
             ->setPosition($dto->getPosition())
             ->setBody($dto->getBody())
-            ->setPreview($filePreview->getRealPath())
+            ->setPreview($filePreview->getPathname())
             ->setCreatedAt(new \DateTimeImmutable())
             ->setActiveToActive();
 
         if ($dto->hasVideo()) {
             $fileVideo = $this->fileSystem->save($dto->getVideo());
-            $entity->setVideo($fileVideo->getRealPath());
+            $entity->setVideo($fileVideo->getPathname());
         }
 
         if ($dto->hasUrl()) {
