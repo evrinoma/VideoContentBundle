@@ -1,0 +1,103 @@
+services:
+  Evrinoma\VideoContentBundle\Controller\VideoContentApiController:
+    alias: evrinoma.video_content.api.controller
+    public: true
+
+  evrinoma.video_content.api.controller:
+    class: Evrinoma\VideoContentBundle\Controller\VideoContentApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.video_content.facade'
+    autowire: true
+
+  evrinoma.video_content.facade:
+    class: Evrinoma\VideoContentBundle\Facade\VideoContent\Facade
+    arguments:
+      - '@evrinoma.video_content.command.manager'
+      - '@evrinoma.video_content.query.manager'
+      - '@evrinoma.video_content.adaptor'
+    autowire: true
+
+  Evrinoma\VideoContentBundle\Facade\VideoContent\FacadeInterface:
+    alias: evrinoma.video_content.facade
+
+  evrinoma.video_content.factory:
+    class: Evrinoma\VideoContentBundle\Factory\VideoContentFactory
+    public: true
+    arguments:
+
+  evrinoma.video_content.orm.repository:
+    class: Evrinoma\VideoContentBundle\Repository\Orm\VideoContent\VideoContentRepository
+    public: true
+    arguments:
+
+  evrinoma.video_content.command.manager:
+    class: Evrinoma\VideoContentBundle\Manager\CommandManager
+    arguments:
+      - '@evrinoma.video_content.validator'
+      - '@evrinoma.video_content.repository'
+      - '@evrinoma.video_content.factory'
+      - '@evrinoma.video_content.command.mediator'
+
+  Evrinoma\VideoContentBundle\Manager\CommandManagerInterface:
+    alias: evrinoma.video_content.command.manager
+
+  evrinoma.video_content.query.manager:
+    class: Evrinoma\VideoContentBundle\Manager\QueryManager
+    arguments:
+      - '@evrinoma.video_content.repository'
+
+  Evrinoma\VideoContentBundle\Manager\QueryManagerInterface:
+    alias: evrinoma.video_content.query.manager
+    
+  evrinoma.video_content.validator:
+    class: Evrinoma\VideoContentBundle\Validator\VideoContentValidator
+    public: true
+    arguments:
+
+  Evrinoma\VideoContentBundle\Validator\VideoContentValidator:
+    alias: evrinoma.video_content.validator
+
+  evrinoma.video_content.query.orm.mediator:
+    class: Evrinoma\VideoContentBundle\Mediator\Orm\QueryMediator
+    public: true
+    arguments:
+
+  Evrinoma\VideoContentBundle\Mediator\Orm\QueryMediator:
+    alias: evrinoma.video_content.query.orm.mediator
+
+  evrinoma.video_content.command.mediator:
+    class: Evrinoma\VideoContentBundle\Mediator\CommandMediator
+    public: true
+    arguments:
+      - '@evrinoma.video_content.system.file_system'
+
+  Evrinoma\VideoContentBundle\Mediator\CommandMediator:
+    alias: evrinoma.video_content.command.mediator
+
+  Evrinoma\VideoContentBundle\Mediator\CommandMediatorInterface:
+    alias: evrinoma.video_content.command.mediator
+
+  evrinoma.video_content.pre.validator:
+    class: Evrinoma\VideoContentBundle\PreValidator\DtoPreValidator
+    public: true
+    arguments:
+
+  Evrinoma\VideoContentBundle\PreValidator\DtoPreValidator:
+    alias: evrinoma.video_content.pre.validator
+
+  Evrinoma\VideoContentBundle\PreValidator\DtoPreValidatorInterface:
+    alias: evrinoma.video_content.pre.validator
+
+  evrinoma.video_content.system.file_system:
+    class: Evrinoma\VideoContentBundle\System\FileSystem
+    public: true
+    arguments:
+
+  Evrinoma\VideoContentBundle\System\FileSystem:
+    alias: evrinoma.video_content.system.file_system
+
+  Evrinoma\VideoContentBundle\System\FileSystemInterface:
+    alias: evrinoma.video_content.system.file_system

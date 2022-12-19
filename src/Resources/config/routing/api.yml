@@ -1,0 +1,3 @@
+video_content_api:
+  resource: "@EvrinomaVideoContentBundle/Controller/VideoContentApiController.php"
+  type: annotation

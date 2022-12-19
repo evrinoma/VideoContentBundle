@@ -1,0 +1,6 @@
+jms_serializer:
+  metadata:
+    directories:
+      VideoContentBundle:
+        namespace_prefix: "Evrinoma\\VideoContentBundle"
+        path: '%kernel.root_dir%/Resources/config/serializer/VideoContentBundle'

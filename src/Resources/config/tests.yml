@@ -1,0 +1,2 @@
+imports:
+  - { resource: tests/video_content.yml }

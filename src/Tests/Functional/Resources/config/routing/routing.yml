@@ -1,0 +1,2 @@
+video_content:
+    resource: "@EvrinomaVideoContentBundle/Resources/config/routes.yml"

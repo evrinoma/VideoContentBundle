@@ -1,0 +1,5 @@
+services:
+  evrinoma.video_content.fixtures.video_content:
+    class: Evrinoma\VideoContentBundle\Fixtures\VideoContentFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

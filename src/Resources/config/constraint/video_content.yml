@@ -1,0 +1,19 @@
+services:
+  evrinoma.video_content.constraint.property.body:
+    class: Evrinoma\VideoContentBundle\Constraint\Property\Body
+
+  evrinoma.video_content.constraint.property.title:
+    class: Evrinoma\VideoContentBundle\Constraint\Property\Title
+
+  evrinoma.video_content.constraint.property.preview:
+    class: Evrinoma\VideoContentBundle\Constraint\Property\Preview
+
+  evrinoma.video_content.constraint.property.active:
+    class: Evrinoma\VideoContentBundle\Constraint\Property\Active
+
+  evrinoma.video_content.constraint.property.position:
+    class: Evrinoma\VideoContentBundle\Constraint\Property\Position
+
+  evrinoma.video_content.constraint.complex.video_content.video_content:
+    class: Evrinoma\VideoContentBundle\Constraint\Complex\VideoContent\VideoContent
+

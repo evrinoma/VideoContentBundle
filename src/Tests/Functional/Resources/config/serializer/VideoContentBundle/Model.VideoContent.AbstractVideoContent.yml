@@ -1,0 +1,33 @@
+Evrinoma\VideoContentBundle\Model\VideoContent\AbstractVideoContent:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    createdAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+    updatedAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+    active:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    body:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    title:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    position:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    video:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    preview:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true
+    url:
+      groups: [ API_GET_VIDEO_CONTENT, API_POST_VIDEO_CONTENT, API_PUT_VIDEO_CONTENT, ]
+      expose: true

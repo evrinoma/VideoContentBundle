@@ -1,0 +1,9 @@
+services:
+  evrinoma.video_content.test.functional.action.video_content:
+    class: Evrinoma\VideoContentBundle\Tests\Functional\Action\BaseVideoContent
+    public: true
+    arguments:
+
+  Evrinoma\VideoContentBundle\Tests\Functional\Action\BaseVideoContent:
+    alias: evrinoma.video_content.test.functional.action.video_content
+    public: true
