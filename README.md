@@ -46,13 +46,13 @@ Actions в контроллере разбиты на две группы
     создание:
         видеоконтент создан HTTP_CREATED 201
     обновление:
-        видеоконтент обновлена HTTP_OK 200
+        видеоконтент обновлен HTTP_OK 200
     удаление:
-        видеоконтент удалена HTTP_ACCEPTED 202
+        видеоконтент удален HTTP_ACCEPTED 202
     получение:
         видеоконтент найден HTTP_OK 200
     ошибки:
-        если видеоконтент не найдена VideoContentNotFoundException возвращает HTTP_NOT_FOUND 404
+        если видеоконтент не найден VideoContentNotFoundException возвращает HTTP_NOT_FOUND 404
         если видеоконтент не уникален UniqueConstraintViolationException возвращает HTTP_CONFLICT 409
         если видеоконтент не прошел валидацию VideoContentInvalidException возвращает HTTP_UNPROCESSABLE_ENTITY 422
         если видеоконтент не может быть сохранен VideoContentCannotBeSavedException возвращает HTTP_NOT_IMPLEMENTED 501
