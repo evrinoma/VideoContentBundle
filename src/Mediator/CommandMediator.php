@@ -44,13 +44,13 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             $fileVideo = $this->fileSystem->save($dto->getVideo());
             $entity->setVideo($fileVideo->getRealPath());
         } else {
-            $entity->setVideo();
+            $entity->resetVideo();
         }
 
         if ($dto->hasUrl()) {
             $entity->setUrl($dto->getUrl());
         } else {
-            $entity->setUrl();
+            $entity->resetUrl();
         }
 
         return $entity;

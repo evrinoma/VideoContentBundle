@@ -20,6 +20,7 @@ use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
 use Evrinoma\UtilsBundle\Entity\PositionTrait;
 use Evrinoma\UtilsBundle\Entity\TitleTrait;
+use Evrinoma\UtilsBundle\Entity\UrlTrait;
 
 /**
  * @ORM\MappedSuperclass
@@ -32,6 +33,7 @@ abstract class AbstractVideoContent implements VideoContentInterface
     use IdTrait;
     use PositionTrait;
     use TitleTrait;
+    use UrlTrait;
 
     /**
      * @ORM\Column(name="video", type="string", length=2047, nullable=true)
@@ -48,7 +50,7 @@ abstract class AbstractVideoContent implements VideoContentInterface
      *
      * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
-    protected ?string $url = null;
+    protected $url = null;
 
     public function hasVideo(): bool
     {
@@ -61,21 +63,11 @@ abstract class AbstractVideoContent implements VideoContentInterface
     }
 
     /**
-     * @return string
-     */
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    /**
-     * @param string|null $url
-     *
      * @return VideoContentInterface
      */
-    public function setUrl(string $url = null): VideoContentInterface
+    public function resetUrl(): VideoContentInterface
     {
-        $this->url = $url;
+        $this->url = null;
 
         return $this;
     }
@@ -116,6 +108,16 @@ abstract class AbstractVideoContent implements VideoContentInterface
     public function setVideo(string $video = null): VideoContentInterface
     {
         $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * @return VideoContentInterface
+     */
+    public function resetVideo(): VideoContentInterface
+    {
+        $this->video = null;
 
         return $this;
     }
