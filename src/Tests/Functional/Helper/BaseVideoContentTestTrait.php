@@ -26,8 +26,7 @@ trait BaseVideoContentTestTrait
 
         file_put_contents($path, 'my_file');
 
-        $fileImage = new UploadedFile($path, 'my_file');
-        $filePreview = new UploadedFile($path, 'my_file');
+        $fileImage = $filePreview = new UploadedFile($path, 'my_file');
 
         static::$files = [
             VideoContentApiDtoInterface::VIDEO => $fileImage,

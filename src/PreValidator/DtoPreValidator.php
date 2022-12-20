@@ -81,9 +81,9 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
     private function checkVideoContent(DtoInterface $dto): self
     {
         /* @var VideoContentApiDtoInterface $dto */
-//        if (!$dto->hasVideo() && !$dto->hasUrl()) {
-//            throw new VideoContentInvalidException('The Dto has\'t video content file');
-//        }
+        if (!$dto->hasVideo() && !$dto->hasUrl()) {
+            throw new VideoContentInvalidException('The Dto has\'t video content file');
+        }
 
         return $this;
     }
