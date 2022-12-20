@@ -34,9 +34,9 @@ abstract class AbstractVideoContent implements VideoContentInterface
     use CreateUpdateAtTrait;
     use IdTrait;
     use PositionTrait;
+    use PreviewTrait;
     use TitleTrait;
     use UrlTrait;
-    use PreviewTrait;
     use VideoTrait;
 
     /**

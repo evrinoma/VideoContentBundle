@@ -25,7 +25,6 @@ use Evrinoma\UtilsBundle\Entity\VideoInterface;
 
 interface VideoContentInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface, UrlInterface, PreviewInterface, VideoInterface
 {
-
     public function hasVideo(): bool;
 
     public function resetVideo(): VideoContentInterface;

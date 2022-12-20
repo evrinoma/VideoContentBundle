@@ -19,9 +19,9 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionTrait;
+use Evrinoma\DtoCommon\ValueObject\Mutable\PreviewTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\UrlTrait;
-use Evrinoma\DtoCommon\ValueObject\Mutable\PreviewTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\VideoTrait;
 use Symfony\Component\HttpFoundation\Request;
 
