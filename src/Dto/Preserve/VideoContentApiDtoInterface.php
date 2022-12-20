@@ -19,8 +19,8 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\IdInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\UrlInterface;
-use Evrinoma\VideoContentBundle\DtoCommon\ValueObject\Mutable\PreviewInterface;
-use Evrinoma\VideoContentBundle\DtoCommon\ValueObject\Mutable\VideoInterface;
+use Evrinoma\DtoCommon\ValueObject\Mutable\PreviewInterface;
+use Evrinoma\DtoCommon\ValueObject\Mutable\VideoInterface;
 
 interface VideoContentApiDtoInterface extends IdInterface, VideoInterface, BodyInterface, TitleInterface, PositionInterface, ActiveInterface, PreviewInterface, UrlInterface
 {

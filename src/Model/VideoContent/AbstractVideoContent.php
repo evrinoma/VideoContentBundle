@@ -19,8 +19,10 @@ use Evrinoma\UtilsBundle\Entity\BodyTrait;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
 use Evrinoma\UtilsBundle\Entity\PositionTrait;
+use Evrinoma\UtilsBundle\Entity\PreviewTrait;
 use Evrinoma\UtilsBundle\Entity\TitleTrait;
 use Evrinoma\UtilsBundle\Entity\UrlTrait;
+use Evrinoma\UtilsBundle\Entity\VideoTrait;
 
 /**
  * @ORM\MappedSuperclass
@@ -34,16 +36,13 @@ abstract class AbstractVideoContent implements VideoContentInterface
     use PositionTrait;
     use TitleTrait;
     use UrlTrait;
+    use PreviewTrait;
+    use VideoTrait;
 
     /**
      * @ORM\Column(name="video", type="string", length=2047, nullable=true)
      */
-    protected ?string $video = null;
-
-    /**
-     * @ORM\Column(name="preview", type="string", length=2047)
-     */
-    protected string $preview;
+    protected $video = null;
 
     /**
      * @var string
@@ -68,46 +67,6 @@ abstract class AbstractVideoContent implements VideoContentInterface
     public function resetUrl(): VideoContentInterface
     {
         $this->url = null;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPreview(): string
-    {
-        return $this->preview;
-    }
-
-    /**
-     * @param string $preview
-     *
-     * @return VideoContentInterface
-     */
-    public function setPreview(string $preview): VideoContentInterface
-    {
-        $this->preview = $preview;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getVideo(): ?string
-    {
-        return $this->video;
-    }
-
-    /**
-     * @param string|null $video
-     *
-     * @return VideoContentInterface
-     */
-    public function setVideo(string $video = null): VideoContentInterface
-    {
-        $this->video = $video;
 
         return $this;
     }

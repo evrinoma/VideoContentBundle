@@ -19,8 +19,8 @@ use Evrinoma\DtoCommon\ValueObject\Preserve\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\TitleTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\UrlTrait;
-use Evrinoma\VideoContentBundle\DtoCommon\ValueObject\Preserve\PreviewTrait;
-use Evrinoma\VideoContentBundle\DtoCommon\ValueObject\Preserve\VideoTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\PreviewTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\VideoTrait;
 
 trait VideoContentApiDtoTrait
 {

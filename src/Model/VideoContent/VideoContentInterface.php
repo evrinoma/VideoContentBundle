@@ -18,20 +18,15 @@ use Evrinoma\UtilsBundle\Entity\BodyInterface;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtInterface;
 use Evrinoma\UtilsBundle\Entity\IdInterface;
 use Evrinoma\UtilsBundle\Entity\PositionInterface;
+use Evrinoma\UtilsBundle\Entity\PreviewInterface;
 use Evrinoma\UtilsBundle\Entity\TitleInterface;
 use Evrinoma\UtilsBundle\Entity\UrlInterface;
+use Evrinoma\UtilsBundle\Entity\VideoInterface;
 
-interface VideoContentInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface, UrlInterface
+interface VideoContentInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface, UrlInterface, PreviewInterface, VideoInterface
 {
-    public function getPreview(): string;
-
-    public function setPreview(string $preview): VideoContentInterface;
-
-    public function getVideo(): ?string;
 
     public function hasVideo(): bool;
-
-    public function setVideo(string $image = null): VideoContentInterface;
 
     public function resetVideo(): VideoContentInterface;
 
