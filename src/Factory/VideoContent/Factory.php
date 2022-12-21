@@ -11,13 +11,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\VideoContentBundle\Factory;
+namespace Evrinoma\VideoContentBundle\Factory\VideoContent;
 
 use Evrinoma\VideoContentBundle\Dto\VideoContentApiDtoInterface;
 use Evrinoma\VideoContentBundle\Entity\VideoContent\BaseVideoContent;
 use Evrinoma\VideoContentBundle\Model\VideoContent\VideoContentInterface;
 
-class VideoContentFactory implements VideoContentFactoryInterface
+class Factory implements FactoryInterface
 {
     private static string $entityClass = BaseVideoContent::class;
 

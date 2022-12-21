@@ -4,7 +4,7 @@
 
     video_content:
         db_driver: orm модель данных
-        factory: App\VideoContent\Factory\VideoContentFactory фабрика для создания объектов,
+        factory: App\VideoContent\Factory\VideoContent\Factory фабрика для создания объектов,
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\VideoContent\Entity\VideoContent сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 

@@ -21,7 +21,7 @@ use Evrinoma\VideoContentBundle\DependencyInjection\Compiler\Constraint\Property
 use Evrinoma\VideoContentBundle\Dto\VideoContentApiDto;
 use Evrinoma\VideoContentBundle\Entity\VideoContent\BaseVideoContent;
 use Evrinoma\VideoContentBundle\EvrinomaVideoContentBundle;
-use Evrinoma\VideoContentBundle\Factory\VideoContentFactory;
+use Evrinoma\VideoContentBundle\Factory\VideoContent\Factory as VideoContentFactory;
 use Evrinoma\VideoContentBundle\Mediator\QueryMediatorInterface;
 use Evrinoma\VideoContentBundle\Repository\VideoContent\VideoContentCommandRepositoryInterface;
 use Evrinoma\VideoContentBundle\Repository\VideoContent\VideoContentQueryRepositoryInterface;

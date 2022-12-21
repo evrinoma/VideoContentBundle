@@ -20,7 +20,7 @@ use Evrinoma\VideoContentBundle\Exception\VideoContentCannotBeRemovedException;
 use Evrinoma\VideoContentBundle\Exception\VideoContentCannotBeSavedException;
 use Evrinoma\VideoContentBundle\Exception\VideoContentInvalidException;
 use Evrinoma\VideoContentBundle\Exception\VideoContentNotFoundException;
-use Evrinoma\VideoContentBundle\Factory\VideoContentFactoryInterface;
+use Evrinoma\VideoContentBundle\Factory\VideoContent\FactoryInterface;
 use Evrinoma\VideoContentBundle\Mediator\CommandMediatorInterface;
 use Evrinoma\VideoContentBundle\Model\VideoContent\VideoContentInterface;
 use Evrinoma\VideoContentBundle\Repository\VideoContent\VideoContentRepositoryInterface;
@@ -29,16 +29,16 @@ final class CommandManager implements CommandManagerInterface
 {
     private VideoContentRepositoryInterface $repository;
     private ValidatorInterface            $validator;
-    private VideoContentFactoryInterface           $factory;
+    private FactoryInterface           $factory;
     private CommandMediatorInterface      $mediator;
 
     /**
      * @param ValidatorInterface              $validator
      * @param VideoContentRepositoryInterface $repository
-     * @param VideoContentFactoryInterface    $factory
+     * @param FactoryInterface                $factory
      * @param CommandMediatorInterface        $mediator
      */
-    public function __construct(ValidatorInterface $validator, VideoContentRepositoryInterface $repository, VideoContentFactoryInterface $factory, CommandMediatorInterface $mediator)
+    public function __construct(ValidatorInterface $validator, VideoContentRepositoryInterface $repository, FactoryInterface $factory, CommandMediatorInterface $mediator)
     {
         $this->validator = $validator;
         $this->repository = $repository;

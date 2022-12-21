@@ -24,7 +24,7 @@ services:
     alias: evrinoma.video_content.facade
 
   evrinoma.video_content.factory:
-    class: Evrinoma\VideoContentBundle\Factory\VideoContentFactory
+    class: Evrinoma\VideoContentBundle\Factory\VideoContent\Factory
     public: true
     arguments:
 
