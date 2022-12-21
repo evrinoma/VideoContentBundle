@@ -52,10 +52,6 @@ trait VideoContentRepositoryTrait
      */
     public function remove(VideoContentInterface $video_content): bool
     {
-        $video_content
-            ->setUpdatedAt(new \DateTimeImmutable())
-            ->setActiveToDelete();
-
         return true;
     }
 
