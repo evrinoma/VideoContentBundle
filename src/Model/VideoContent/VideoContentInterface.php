@@ -19,11 +19,12 @@ use Evrinoma\UtilsBundle\Entity\CreateUpdateAtInterface;
 use Evrinoma\UtilsBundle\Entity\IdInterface;
 use Evrinoma\UtilsBundle\Entity\PositionInterface;
 use Evrinoma\UtilsBundle\Entity\PreviewInterface;
+use Evrinoma\UtilsBundle\Entity\StartInterface;
 use Evrinoma\UtilsBundle\Entity\TitleInterface;
 use Evrinoma\UtilsBundle\Entity\UrlInterface;
 use Evrinoma\UtilsBundle\Entity\VideoInterface;
 
-interface VideoContentInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface, UrlInterface, PreviewInterface, VideoInterface
+interface VideoContentInterface extends ActiveInterface, CreateUpdateAtInterface, IdInterface, BodyInterface, TitleInterface, PositionInterface, UrlInterface, PreviewInterface, VideoInterface, StartInterface
 {
     public function hasVideo(): bool;
 

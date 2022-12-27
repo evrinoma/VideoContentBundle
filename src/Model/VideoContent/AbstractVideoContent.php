@@ -20,6 +20,7 @@ use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
 use Evrinoma\UtilsBundle\Entity\PositionTrait;
 use Evrinoma\UtilsBundle\Entity\PreviewTrait;
+use Evrinoma\UtilsBundle\Entity\StartTrait;
 use Evrinoma\UtilsBundle\Entity\TitleTrait;
 use Evrinoma\UtilsBundle\Entity\UrlTrait;
 use Evrinoma\UtilsBundle\Entity\VideoTrait;
@@ -35,6 +36,7 @@ abstract class AbstractVideoContent implements VideoContentInterface
     use IdTrait;
     use PositionTrait;
     use PreviewTrait;
+    use StartTrait;
     use TitleTrait;
     use UrlTrait;
     use VideoTrait;

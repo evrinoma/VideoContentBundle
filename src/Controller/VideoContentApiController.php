@@ -73,6 +73,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      *                         @OA\Property(property="title", type="string"),
      *                         @OA\Property(property="position", type="int"),
      *                         @OA\Property(property="url", type="string"),
+     *                         @OA\Property(property="start", type="string"),
      *                         @OA\Property(property="video", type="string",  format="binary"),
      *                         @OA\Property(property="preview", type="string",  format="binary")
      *                     )
@@ -125,6 +126,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      *                         @OA\Property(property="title", type="string"),
      *                         @OA\Property(property="position", type="int"),
      *                         @OA\Property(property="url", type="string"),
+     *                         @OA\Property(property="start", type="string"),
      *                         @OA\Property(property="video", type="string",  format="binary"),
      *                         @OA\Property(property="preview", type="string",  format="binary")
      *                     )
@@ -257,6 +259,14 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      *         name="body",
      *         @OA\Schema(
      *             type="string",
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         description="start",
+     *         in="query",
+     *         name="start",
+     *         @OA\Schema(
+     *             type="date",
      *         )
      *     ),
      *     @OA\Parameter(

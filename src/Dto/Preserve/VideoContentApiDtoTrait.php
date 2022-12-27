@@ -18,6 +18,7 @@ use Evrinoma\DtoCommon\ValueObject\Preserve\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\PreviewTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\StartTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\TitleTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\UrlTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\VideoTrait;
@@ -29,6 +30,7 @@ trait VideoContentApiDtoTrait
     use IdTrait;
     use PositionTrait;
     use PreviewTrait;
+    use StartTrait;
     use TitleTrait;
     use UrlTrait;
     use VideoTrait;

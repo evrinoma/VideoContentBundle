@@ -80,5 +80,6 @@ trait BaseVideoContentTestTrait
         Assert::assertArrayHasKey(VideoContentApiDtoInterface::ACTIVE, $entity);
         Assert::assertArrayHasKey(VideoContentApiDtoInterface::PREVIEW, $entity);
         Assert::assertArrayHasKey(VideoContentApiDtoInterface::POSITION, $entity);
+        Assert::assertArrayHasKey(VideoContentApiDtoInterface::START, $entity);
     }
 }

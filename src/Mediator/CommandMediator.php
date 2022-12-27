@@ -40,6 +40,10 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setUpdatedAt(new \DateTimeImmutable())
             ->setActive($dto->getActive());
 
+        if ($dto->hasStart()) {
+            $entity->setStart(new \DateTimeImmutable($dto->getStart()));
+        }
+
         if ($dto->hasVideo()) {
             $fileVideo = $this->fileSystem->save($dto->getVideo());
             $entity->setVideo($fileVideo->getPathname());
@@ -74,6 +78,10 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
             ->setPreview($filePreview->getPathname())
             ->setCreatedAt(new \DateTimeImmutable())
             ->setActiveToActive();
+
+        if ($dto->hasStart()) {
+            $entity->setStart(new \DateTimeImmutable($dto->getStart()));
+        }
 
         if ($dto->hasVideo()) {
             $fileVideo = $this->fileSystem->save($dto->getVideo());

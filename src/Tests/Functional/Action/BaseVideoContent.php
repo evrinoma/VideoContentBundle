@@ -24,6 +24,7 @@ use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Active
 use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Body;
 use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Id;
 use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Position;
+use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Start;
 use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Title;
 use Evrinoma\VideoContentBundle\Tests\Functional\ValueObject\VideoContent\Url;
 use PHPUnit\Framework\Assert;
@@ -59,6 +60,7 @@ class BaseVideoContent extends AbstractServiceTest implements BaseVideoContentTe
             VideoContentApiDtoInterface::POSITION => Position::value(),
             VideoContentApiDtoInterface::ACTIVE => Active::value(),
             VideoContentApiDtoInterface::BODY => Body::default(),
+            VideoContentApiDtoInterface::START => Start::default(),
         ];
     }
 

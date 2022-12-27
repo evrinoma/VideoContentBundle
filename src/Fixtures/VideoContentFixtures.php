@@ -28,7 +28,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://ite',
             VideoContentApiDtoInterface::POSITION => 1,
             VideoContentApiDtoInterface::ACTIVE => 'a',
-            'created_at' => '2008-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2008-10-23 10:21:50',
             VideoContentApiDtoInterface::VIDEO => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
             VideoContentApiDtoInterface::URL => 'PATH://TO_URL',
@@ -38,7 +38,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://kzkt',
             VideoContentApiDtoInterface::POSITION => 2,
             VideoContentApiDtoInterface::ACTIVE => 'a',
-            'created_at' => '2015-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2015-10-23 10:21:50',
             VideoContentApiDtoInterface::URL => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
         ],
@@ -47,7 +47,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://c2m',
             VideoContentApiDtoInterface::POSITION => 3,
             VideoContentApiDtoInterface::ACTIVE => 'a',
-            'created_at' => '2020-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2020-10-23 10:21:50',
             VideoContentApiDtoInterface::VIDEO => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
         ],
@@ -56,7 +56,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://kzkt2',
             VideoContentApiDtoInterface::POSITION => 1,
             VideoContentApiDtoInterface::ACTIVE => 'd',
-            'created_at' => '2015-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2015-10-23 10:21:50',
             VideoContentApiDtoInterface::URL => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
             ],
@@ -65,7 +65,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://nvr',
             VideoContentApiDtoInterface::POSITION => 2,
             VideoContentApiDtoInterface::ACTIVE => 'b',
-            'created_at' => '2010-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2010-10-23 10:21:50',
             VideoContentApiDtoInterface::VIDEO => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
         ],
@@ -74,7 +74,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://nvr2',
             VideoContentApiDtoInterface::POSITION => 3,
             VideoContentApiDtoInterface::ACTIVE => 'd',
-            'created_at' => '2010-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2010-10-23 10:21:50',
             VideoContentApiDtoInterface::URL => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
             ],
@@ -83,7 +83,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
             VideoContentApiDtoInterface::BODY => 'http://nvr3',
             VideoContentApiDtoInterface::POSITION => 1,
             VideoContentApiDtoInterface::ACTIVE => 'd',
-            'created_at' => '2011-10-23 10:21:50',
+            VideoContentApiDtoInterface::START => '2011-10-23 10:21:50',
             VideoContentApiDtoInterface::VIDEO => 'PATH://TO_VIDEO',
             VideoContentApiDtoInterface::PREVIEW => 'PATH://TO_VIDEO_PREV',
         ],
@@ -111,7 +111,8 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
                 ->setTitle($record[VideoContentApiDtoInterface::TITLE])
                 ->setBody($record[VideoContentApiDtoInterface::BODY])
                 ->setPosition($record[VideoContentApiDtoInterface::POSITION])
-                ->setCreatedAt(new \DateTimeImmutable($record['created_at']));
+                ->setStart(new \DateTimeImmutable($record[VideoContentApiDtoInterface::START]))
+                ->setCreatedAt(new \DateTimeImmutable());
 
             if (\array_key_exists(VideoContentApiDtoInterface::VIDEO, $record)) {
                 $entity

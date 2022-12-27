@@ -20,6 +20,7 @@ use Evrinoma\DtoCommon\ValueObject\Mutable\BodyTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PositionTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\PreviewTrait;
+use Evrinoma\DtoCommon\ValueObject\Mutable\StartTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\TitleTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\UrlTrait;
 use Evrinoma\DtoCommon\ValueObject\Mutable\VideoTrait;
@@ -32,6 +33,7 @@ class VideoContentApiDto extends AbstractDto implements VideoContentApiDtoInterf
     use IdTrait;
     use PositionTrait;
     use PreviewTrait;
+    use StartTrait;
     use TitleTrait;
     use UrlTrait;
     use VideoTrait;
@@ -49,6 +51,7 @@ class VideoContentApiDto extends AbstractDto implements VideoContentApiDtoInterf
             $video = $request->files->get(VideoContentApiDtoInterface::VIDEO);
             $preview = $request->files->get(VideoContentApiDtoInterface::PREVIEW);
             $url = $request->get(VideoContentApiDtoInterface::URL);
+            $start = $request->get(VideoContentApiDtoInterface::START);
 
             if ($active) {
                 $this->setActive($active);
@@ -73,6 +76,9 @@ class VideoContentApiDto extends AbstractDto implements VideoContentApiDtoInterf
             }
             if ($url) {
                 $this->setUrl($url);
+            }
+            if ($start) {
+                $this->setStart($start);
             }
         }
 
