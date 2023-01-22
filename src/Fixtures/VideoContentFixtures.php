@@ -103,8 +103,8 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
         $short = self::getReferenceName();
         $i = 0;
 
-        foreach (static::$data as $record) {
-            $entity = new static::$class();
+        foreach ($this->getData() as $record) {
+            $entity = $this->getEntity();
             $entity
                 ->setPreview($record[VideoContentApiDtoInterface::PREVIEW])
                 ->setActive($record[VideoContentApiDtoInterface::ACTIVE])
@@ -123,6 +123,8 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
                 $entity
                     ->setUrl($record[VideoContentApiDtoInterface::URL]);
             }
+
+            $this->expandEntity($entity);
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
