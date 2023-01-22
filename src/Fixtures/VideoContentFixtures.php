@@ -124,7 +124,7 @@ class VideoContentFixtures extends AbstractFixture implements FixtureGroupInterf
                     ->setUrl($record[VideoContentApiDtoInterface::URL]);
             }
 
-            $this->expandEntity($entity);
+            $this->expandEntity($entity, $record);
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
