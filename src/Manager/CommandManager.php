@@ -57,11 +57,11 @@ final class CommandManager implements CommandManagerInterface
      */
     public function post(VideoContentApiDtoInterface $dto): VideoContentInterface
     {
-        $video_content = $this->factory->create($dto);
+        $videoContent = $this->factory->create($dto);
 
-        $this->mediator->onCreate($dto, $video_content);
+        $this->mediator->onCreate($dto, $videoContent);
 
-        $errors = $this->validator->validate($video_content);
+        $errors = $this->validator->validate($videoContent);
 
         if (\count($errors) > 0) {
             $errorsString = (string) $errors;
@@ -69,9 +69,9 @@ final class CommandManager implements CommandManagerInterface
             throw new VideoContentInvalidException($errorsString);
         }
 
-        $this->repository->save($video_content);
+        $this->repository->save($videoContent);
 
-        return $video_content;
+        return $videoContent;
     }
 
     /**
@@ -86,14 +86,14 @@ final class CommandManager implements CommandManagerInterface
     public function put(VideoContentApiDtoInterface $dto): VideoContentInterface
     {
         try {
-            $video_content = $this->repository->find($dto->idToString());
+            $videoContent = $this->repository->find($dto->idToString());
         } catch (VideoContentNotFoundException $e) {
             throw $e;
         }
 
-        $this->mediator->onUpdate($dto, $video_content);
+        $this->mediator->onUpdate($dto, $videoContent);
 
-        $errors = $this->validator->validate($video_content);
+        $errors = $this->validator->validate($videoContent);
 
         if (\count($errors) > 0) {
             $errorsString = (string) $errors;
@@ -101,9 +101,9 @@ final class CommandManager implements CommandManagerInterface
             throw new VideoContentInvalidException($errorsString);
         }
 
-        $this->repository->save($video_content);
+        $this->repository->save($videoContent);
 
-        return $video_content;
+        return $videoContent;
     }
 
     /**
@@ -115,13 +115,13 @@ final class CommandManager implements CommandManagerInterface
     public function delete(VideoContentApiDtoInterface $dto): void
     {
         try {
-            $video_content = $this->repository->find($dto->idToString());
+            $videoContent = $this->repository->find($dto->idToString());
         } catch (VideoContentNotFoundException $e) {
             throw $e;
         }
-        $this->mediator->onDelete($dto, $video_content);
+        $this->mediator->onDelete($dto, $videoContent);
         try {
-            $this->repository->remove($video_content);
+            $this->repository->remove($videoContent);
         } catch (VideoContentCannotBeRemovedException $e) {
             throw $e;
         }

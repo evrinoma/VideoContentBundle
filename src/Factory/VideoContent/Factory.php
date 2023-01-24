@@ -33,7 +33,7 @@ class Factory implements FactoryInterface
      */
     public function create(VideoContentApiDtoInterface $dto): VideoContentInterface
     {
-        /* @var BaseVideoContent $video_content */
+        /* @var BaseVideoContent $videoContent */
         return new self::$entityClass();
     }
 }

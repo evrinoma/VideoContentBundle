@@ -38,12 +38,12 @@ final class QueryManager implements QueryManagerInterface
     public function criteria(VideoContentApiDtoInterface $dto): array
     {
         try {
-            $video_content = $this->repository->findByCriteria($dto);
+            $videoContent = $this->repository->findByCriteria($dto);
         } catch (VideoContentNotFoundException $e) {
             throw $e;
         }
 
-        return $video_content;
+        return $videoContent;
     }
 
     /**
@@ -57,7 +57,7 @@ final class QueryManager implements QueryManagerInterface
     {
         try {
             if ($dto->hasId()) {
-                $video_content = $this->repository->proxy($dto->idToString());
+                $videoContent = $this->repository->proxy($dto->idToString());
             } else {
                 throw new VideoContentProxyException('Id value is not set while trying get proxy object');
             }
@@ -65,7 +65,7 @@ final class QueryManager implements QueryManagerInterface
             throw $e;
         }
 
-        return $video_content;
+        return $videoContent;
     }
 
     /**
@@ -78,11 +78,11 @@ final class QueryManager implements QueryManagerInterface
     public function get(VideoContentApiDtoInterface $dto): VideoContentInterface
     {
         try {
-            $video_content = $this->repository->find($dto->idToString());
+            $videoContent = $this->repository->find($dto->idToString());
         } catch (VideoContentNotFoundException $e) {
             throw $e;
         }
 
-        return $video_content;
+        return $videoContent;
     }
 }

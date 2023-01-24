@@ -61,6 +61,7 @@ class BaseVideoContent extends AbstractServiceTest implements BaseVideoContentTe
             VideoContentApiDtoInterface::ACTIVE => Active::value(),
             VideoContentApiDtoInterface::BODY => Body::default(),
             VideoContentApiDtoInterface::START => Start::default(),
+            VideoContentApiDtoInterface::URL => Url::default(),
         ];
     }
 

@@ -88,8 +88,8 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      */
     public function postAction(): JsonResponse
     {
-        /** @var VideoContentApiDtoInterface $video_contentApiDto */
-        $video_contentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
+        /** @var VideoContentApiDtoInterface $videoContentApiDto */
+        $videoContentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
 
         $this->setStatusCreated();
 
@@ -98,7 +98,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         $group = GroupInterface::API_POST_VIDEO_CONTENT;
 
         try {
-            $this->facade->post($video_contentApiDto, $group, $json);
+            $this->facade->post($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
             $error = $this->setRestStatus($e);
         }
@@ -141,15 +141,15 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      */
     public function putAction(): JsonResponse
     {
-        /** @var VideoContentApiDtoInterface $video_contentApiDto */
-        $video_contentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
+        /** @var VideoContentApiDtoInterface $videoContentApiDto */
+        $videoContentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
 
         $json = [];
         $error = [];
         $group = GroupInterface::API_PUT_VIDEO_CONTENT;
 
         try {
-            $this->facade->put($video_contentApiDto, $group, $json);
+            $this->facade->put($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
             $error = $this->setRestStatus($e);
         }
@@ -189,8 +189,8 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      */
     public function deleteAction(): JsonResponse
     {
-        /** @var VideoContentApiDtoInterface $video_contentApiDto */
-        $video_contentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
+        /** @var VideoContentApiDtoInterface $videoContentApiDto */
+        $videoContentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
 
         $this->setStatusAccepted();
 
@@ -198,7 +198,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         $error = [];
 
         try {
-            $this->facade->delete($video_contentApiDto, '', $json);
+            $this->facade->delete($videoContentApiDto, '', $json);
         } catch (\Exception $e) {
             $error = $this->setRestStatus($e);
         }
@@ -284,15 +284,15 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      */
     public function criteriaAction(): JsonResponse
     {
-        /** @var VideoContentApiDtoInterface $video_contentApiDto */
-        $video_contentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
+        /** @var VideoContentApiDtoInterface $videoContentApiDto */
+        $videoContentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
 
         $json = [];
         $error = [];
         $group = GroupInterface::API_CRITERIA_VIDEO_CONTENT;
 
         try {
-            $this->facade->criteria($video_contentApiDto, $group, $json);
+            $this->facade->criteria($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
             $error = $this->setRestStatus($e);
         }
@@ -332,15 +332,15 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
      */
     public function getAction(): JsonResponse
     {
-        /** @var VideoContentApiDtoInterface $video_contentApiDto */
-        $video_contentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
+        /** @var VideoContentApiDtoInterface $videoContentApiDto */
+        $videoContentApiDto = $this->factoryDto->setRequest($this->request)->createDto($this->dtoClass);
 
         $json = [];
         $error = [];
         $group = GroupInterface::API_GET_VIDEO_CONTENT;
 
         try {
-            $this->facade->get($video_contentApiDto, $group, $json);
+            $this->facade->get($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
             $error = $this->setRestStatus($e);
         }

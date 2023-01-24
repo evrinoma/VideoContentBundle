@@ -27,17 +27,17 @@ trait VideoContentRepositoryTrait
     private QueryMediatorInterface $mediator;
 
     /**
-     * @param VideoContentInterface $video_content
+     * @param VideoContentInterface $videoContent
      *
      * @return bool
      *
      * @throws VideoContentCannotBeSavedException
      * @throws ORMException
      */
-    public function save(VideoContentInterface $video_content): bool
+    public function save(VideoContentInterface $videoContent): bool
     {
         try {
-            $this->persistWrapped($video_content);
+            $this->persistWrapped($videoContent);
         } catch (ORMInvalidArgumentException $e) {
             throw new VideoContentCannotBeSavedException($e->getMessage());
         }
@@ -46,11 +46,11 @@ trait VideoContentRepositoryTrait
     }
 
     /**
-     * @param VideoContentInterface $video_content
+     * @param VideoContentInterface $videoContent
      *
      * @return bool
      */
-    public function remove(VideoContentInterface $video_content): bool
+    public function remove(VideoContentInterface $videoContent): bool
     {
         return true;
     }
@@ -68,13 +68,13 @@ trait VideoContentRepositoryTrait
 
         $this->mediator->createQuery($dto, $builder);
 
-        $video_contents = $this->mediator->getResult($dto, $builder);
+        $videoContents = $this->mediator->getResult($dto, $builder);
 
-        if (0 === \count($video_contents)) {
+        if (0 === \count($videoContents)) {
             throw new VideoContentNotFoundException('Cannot find video_content by findByCriteria');
         }
 
-        return $video_contents;
+        return $videoContents;
     }
 
     /**
@@ -88,14 +88,14 @@ trait VideoContentRepositoryTrait
      */
     public function find($id, $lockMode = null, $lockVersion = null): VideoContentInterface
     {
-        /** @var VideoContentInterface $video_content */
-        $video_content = $this->findWrapped($id);
+        /** @var VideoContentInterface $videoContent */
+        $videoContent = $this->findWrapped($id);
 
-        if (null === $video_content) {
+        if (null === $videoContent) {
             throw new VideoContentNotFoundException("Cannot find video_content with id $id");
         }
 
-        return $video_content;
+        return $videoContent;
     }
 
     /**
@@ -108,12 +108,12 @@ trait VideoContentRepositoryTrait
      */
     public function proxy(string $id): VideoContentInterface
     {
-        $video_content = $this->referenceWrapped($id);
+        $videoContent = $this->referenceWrapped($id);
 
-        if (!$this->containsWrapped($video_content)) {
+        if (!$this->containsWrapped($videoContent)) {
             throw new VideoContentProxyException("Proxy doesn't exist with $id");
         }
 
-        return $video_content;
+        return $videoContent;
     }
 }

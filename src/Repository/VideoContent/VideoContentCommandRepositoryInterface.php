@@ -20,20 +20,20 @@ use Evrinoma\VideoContentBundle\Model\VideoContent\VideoContentInterface;
 interface VideoContentCommandRepositoryInterface
 {
     /**
-     * @param VideoContentInterface $video_content
+     * @param VideoContentInterface $videoContent
      *
      * @return bool
      *
      * @throws VideoContentCannotBeSavedException
      */
-    public function save(VideoContentInterface $video_content): bool;
+    public function save(VideoContentInterface $videoContent): bool;
 
     /**
-     * @param VideoContentInterface $video_content
+     * @param VideoContentInterface $videoContent
      *
      * @return bool
      *
      * @throws VideoContentCannotBeRemovedException
      */
-    public function remove(VideoContentInterface $video_content): bool;
+    public function remove(VideoContentInterface $videoContent): bool;
 }

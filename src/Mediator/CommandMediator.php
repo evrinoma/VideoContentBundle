@@ -89,7 +89,7 @@ class CommandMediator extends AbstractCommandMediator implements CommandMediator
         }
 
         if ($dto->hasUrl()) {
-            $entity->setVideo($dto->getUrl());
+            $entity->setUrl($dto->getUrl());
         }
 
         return $entity;
