@@ -25,7 +25,7 @@
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\VideoContent\Entity\VideoContent сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
-        dto_class: App\VideoContent\Dto\VideoContentDto класс dto с которым работает сущность
+        dto: App\VideoContent\Dto\VideoContentDto класс dto с которым работает сущность
         decorates:
           command - декоратор mediator команд видеоконтента
           query - декоратор mediator запросов видеоконтента
