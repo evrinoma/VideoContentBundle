@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Evrinoma\VideoContentBundle\Tests\Functional;
 
+use Evrinoma\DtoBundle\EvrinomaDtoBundle;
 use Evrinoma\TestUtilsBundle\Kernel\AbstractApiKernel;
+use Evrinoma\VideoContentBundle\EvrinomaVideoContentBundle;
 
 /**
  * Kernel.
@@ -30,8 +32,8 @@ class Kernel extends AbstractApiKernel
     {
         return array_merge(
             parent::registerBundles(), [
-                new \Evrinoma\DtoBundle\EvrinomaDtoBundle(),
-                new \Evrinoma\VideoContentBundle\EvrinomaVideoContentBundle(),
+                new EvrinomaDtoBundle(),
+                new EvrinomaVideoContentBundle(),
             ]
         );
     }
