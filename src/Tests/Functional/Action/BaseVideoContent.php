@@ -73,26 +73,45 @@ class BaseVideoContent extends AbstractServiceTest implements BaseVideoContentTe
 
     public function actionCriteriaNotFound(): void
     {
-        $find = $this->criteria([VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(), VideoContentApiDtoInterface::ACTIVE => Active::wrong()]);
+        $find = $this->criteria([
+            VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            VideoContentApiDtoInterface::ACTIVE => Active::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
 
-        $find = $this->criteria([VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(), VideoContentApiDtoInterface::ID => Id::value(), VideoContentApiDtoInterface::ACTIVE => Active::block(), VideoContentApiDtoInterface::TITLE => Title::wrong()]);
+        $find = $this->criteria([
+            VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            VideoContentApiDtoInterface::ID => Id::value(),
+            VideoContentApiDtoInterface::ACTIVE => Active::block(),
+            VideoContentApiDtoInterface::TITLE => Title::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
     }
 
     public function actionCriteria(): void
     {
-        $find = $this->criteria([VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(), VideoContentApiDtoInterface::ACTIVE => Active::value(), VideoContentApiDtoInterface::ID => Id::value()]);
+        $find = $this->criteria([
+            VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            VideoContentApiDtoInterface::ACTIVE => Active::value(),
+            VideoContentApiDtoInterface::ID => Id::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(1, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(), VideoContentApiDtoInterface::ACTIVE => Active::delete()]);
+        $find = $this->criteria([
+            VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            VideoContentApiDtoInterface::ACTIVE => Active::delete(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(3, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(), VideoContentApiDtoInterface::ACTIVE => Active::delete(), VideoContentApiDtoInterface::TITLE => Title::value()]);
+        $find = $this->criteria([
+            VideoContentApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            VideoContentApiDtoInterface::ACTIVE => Active::delete(),
+            VideoContentApiDtoInterface::TITLE => Title::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(2, $find[PayloadModel::PAYLOAD]);
     }
@@ -115,7 +134,12 @@ class BaseVideoContent extends AbstractServiceTest implements BaseVideoContentTe
     {
         $find = $this->assertGet(Id::value());
 
-        $updated = $this->put(static::getDefault([VideoContentApiDtoInterface::ID => Id::value(), VideoContentApiDtoInterface::TITLE => Title::value(), VideoContentApiDtoInterface::BODY => Body::value(), VideoContentApiDtoInterface::POSITION => Position::value()]));
+        $updated = $this->put(static::getDefault([
+            VideoContentApiDtoInterface::ID => Id::value(),
+            VideoContentApiDtoInterface::TITLE => Title::value(),
+            VideoContentApiDtoInterface::BODY => Body::value(),
+            VideoContentApiDtoInterface::POSITION => Position::value(),
+        ]));
         $this->testResponseStatusOK();
 
         Assert::assertEquals($find[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID], $updated[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID]);
@@ -145,7 +169,7 @@ class BaseVideoContent extends AbstractServiceTest implements BaseVideoContentTe
 
     public function actionDeleteUnprocessable(): void
     {
-        $response = $this->delete(Id::empty());
+        $response = $this->delete(Id::blank());
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $response);
         $this->testResponseStatusUnprocessable();
     }
@@ -167,28 +191,42 @@ class BaseVideoContent extends AbstractServiceTest implements BaseVideoContentTe
         $this->testResponseStatusCreated();
         $this->checkResult($created);
 
-        $query = static::getDefault([VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID], VideoContentApiDtoInterface::TITLE => Title::empty()]);
+        $query = static::getDefault([
+            VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID],
+            VideoContentApiDtoInterface::TITLE => Title::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID], VideoContentApiDtoInterface::BODY => Body::empty()]);
+        $query = static::getDefault([
+            VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID],
+            VideoContentApiDtoInterface::BODY => Body::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID], VideoContentApiDtoInterface::POSITION => Position::empty()]);
+        $query = static::getDefault([
+            VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID],
+            VideoContentApiDtoInterface::POSITION => Position::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
         unset(static::$files[VideoContentApiDtoInterface::VIDEO]);
-        $query = static::getDefault([VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID], VideoContentApiDtoInterface::URL => Url::empty()]);
+        $query = static::getDefault([
+            VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID],
+            VideoContentApiDtoInterface::URL => Url::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID]]);
+        $query = static::getDefault([
+            VideoContentApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][VideoContentApiDtoInterface::ID],
+        ]);
         static::$files = [];
 
         $this->put($query);
