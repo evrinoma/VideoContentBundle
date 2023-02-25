@@ -100,6 +100,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         try {
             $this->facade->post($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -151,6 +152,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         try {
             $this->facade->put($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -200,6 +202,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         try {
             $this->facade->delete($videoContentApiDto, '', $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -294,6 +297,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         try {
             $this->facade->criteria($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -342,6 +346,7 @@ final class VideoContentApiController extends AbstractWrappedApiController imple
         try {
             $this->facade->get($videoContentApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
